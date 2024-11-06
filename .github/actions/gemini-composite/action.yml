@@ -37,7 +37,7 @@ runs:
         GOOGLE_API_KEY: ${{ inputs.GOOGLE_API_KEY }} 
 
     - name: "Upload prompt"
-      uses: actions/upload@artifact@v4
+      uses: actions/upload-artifact@v4
       with:
         name: prompt
         path: ${{ github.workspace }}/output
