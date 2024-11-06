@@ -7,6 +7,9 @@ inputs:
   GH_TOKEN:
     required: true
     type: string
+  GOOGLE_API_KEY:
+    required: true
+    type: string
 
 runs:
   using: "Composite"
@@ -29,5 +32,9 @@ runs:
 
     - name: "Execute gemini"
       shell: bash
-      run: python3 gemini/main.py "${{ inputs.prompt }}"
+      run: | 
+        python3 gemini/main.py "${{ inputs.prompt }}"
+        cat gemini/output
+      env:
+        GOOGLE_API_KEY: ${{ inputs.GOOGLE_API_KEY }} 
       
