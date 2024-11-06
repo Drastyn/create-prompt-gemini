@@ -1,0 +1,33 @@
+name: 'Gemini'
+inputs:
+  prompt: 
+    description: 'Prompt para Gemini'
+    required: true
+    type: string
+  GH_TOKEN:
+    required: true
+    type: string
+
+runs:
+  using: "Composite"
+  steps:
+  
+    - name: "Clone Gemini repository"
+      shell: bash
+      run: git clone https://${{ env.GH_TOKEN }}@github.com/Drastyn/gemini.git
+      env:
+        GH_TOKEN: ${{ inputs.GH_TOKEN }}
+        
+    - name: "Set up Python"
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        
+    - name: "Install requirements"
+      shell: bash
+      run: pip install -r gemini/requirements.txt
+
+    - name: "Execute gemini"
+      shell: bash
+      run: python3 gemini/main.py "${{ inputs.prompt }}"
+      
