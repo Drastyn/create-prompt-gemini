@@ -39,6 +39,6 @@ runs:
     - name: "Upload prompt"
       uses: actions/upload@artifact@v4
       with:
-        name: "prompt"
+        name: prompt
         path: ${{ github.workspace }}/output
         retention-days: 1
