@@ -34,8 +34,7 @@ runs:
       shell: bash
       run: | 
         python3 gemini/main.py "${{ inputs.prompt }}"
-        ls
-        cat gemini/output
+        cat ${{ github.workspace }}/output
       env:
         GOOGLE_API_KEY: ${{ inputs.GOOGLE_API_KEY }} 
       
