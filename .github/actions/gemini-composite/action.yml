@@ -4,6 +4,9 @@ inputs:
     description: 'Prompt para Gemini'
     required: true
     type: string
+  output-artifact: 
+    required: true
+    type: string
   GH_TOKEN:
     required: true
     type: string
@@ -39,6 +42,6 @@ runs:
     - name: "Upload prompt"
       uses: actions/upload-artifact@v4
       with:
-        name: prompt
+        name: ${{ inputs.output-artifact }}
         path: ${{ github.workspace }}/output
         retention-days: 1
