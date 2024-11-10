@@ -13,6 +13,9 @@ inputs:
   GOOGLE_API_KEY:
     required: true
     type: string
+  ATTEMPTS:
+    required: true
+    type: string
 
 runs:
   using: "Composite"
