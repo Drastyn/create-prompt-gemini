@@ -22,7 +22,8 @@ runs:
   steps:
 
     - name: "Check attempts"
-      if: ${{ inputs.ATTEMTPS >= 3 }}
+      if: ${{ inputs.ATTEMTPS >= 3 
+      shell: bash
       run:  | 
         echo "YA NO QUEDAN INTENTOS DISPONIBLES..."
         exit 1
