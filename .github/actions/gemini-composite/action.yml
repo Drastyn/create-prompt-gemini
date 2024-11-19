@@ -11,6 +11,9 @@ inputs:
   output-artifact: 
     required: true
     type: string
+  output-file: 
+    required: true
+    type: string
   GH_TOKEN:
     required: true
     type: string
