@@ -11,7 +11,7 @@ inputs:
   output-artifact: 
     required: true
     type: string
-  output-file: 
+  output-file-name: 
     required: true
     type: string
   GH_TOKEN:
@@ -55,7 +55,7 @@ runs:
       run: python3 gemini/main.py "${{ inputs.concept }}"
       env:
         GOOGLE_API_KEY: ${{ inputs.GOOGLE_API_KEY }} 
-        OUTPUT_FILE_NAME: ${{ inputs.OUTPUT_FILE_NAME }}
+        OUTPUT_FILE_NAME: ${{ inputs.output-file-name }}
 
     - name: "Upload prompt"
       uses: actions/upload-artifact@v4
