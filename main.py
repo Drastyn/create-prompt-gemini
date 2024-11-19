@@ -12,6 +12,7 @@ model = genai.GenerativeModel('gemini-1.5-flash', system_instruction=context)
 def main():
     prompt   = checkInput(sys.argv)
     response = model.generate_content(prompt).__getattribute__("text")
+    print(response)
     popen(f"echo \"{response}\" > {output_file_name}")
 
 def checkInput(arguments):
