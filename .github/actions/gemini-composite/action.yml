@@ -52,7 +52,7 @@ runs:
 
     - name: "Prompt generation"
       shell: bash
-      run: python3 gemini/main.py "${{ inputs.concept }}"
+      run: python3 gemini/main.py "${{ inputs.concept }}" "${{ inputs.style }}"
       env:
         GOOGLE_API_KEY: ${{ inputs.GOOGLE_API_KEY }} 
         OUTPUT_FILE_NAME: ${{ inputs.output-file-name }}
