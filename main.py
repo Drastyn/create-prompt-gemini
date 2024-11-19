@@ -13,7 +13,6 @@ def main():
     prompt   = checkInput(sys.argv)
     input_model = context + prompt
     response = model.generate_content(input_model).__getattribute__("text")
-    print(response)
     popen(f"echo \"{response}\" > {output_file_name}")
 
 def checkInput(arguments):
