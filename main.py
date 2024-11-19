@@ -3,6 +3,7 @@ import sys
 import google.generativeai as genai
 
 google_api_key = getenv('GOOGLE_API_KEY')
+style = getenv('STYLE')
 output_file_name = getenv('OUTPUT_FILE_NAME')
 
 genai.configure(api_key=google_api_key)
@@ -13,7 +14,8 @@ def main():
     concept = checkInput(sys.argv)
     prompt  = context + concept
     response = model.generate_content(prompt).__getattribute__("text")
-    popen(f"echo \"{response}\" > {output_file_name}")
+    popen(f"echo \"{style}\" > {output_file_name}")
+    popen(f"echo \"{response}\" >> {output_file_name}")
 
 def checkInput(arguments):
     arguments_length = len(arguments)
