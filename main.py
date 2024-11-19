@@ -10,9 +10,9 @@ context = "Tu objetivo principal es dado un texto generar una descripcion de un 
 model = genai.GenerativeModel('gemini-pro')
 
 def main():
-    prompt   = checkInput(sys.argv)
-    input_model = context + prompt
-    response = model.generate_content(input_model).__getattribute__("text")
+    concept = checkInput(sys.argv)
+    prompt  = context + concept
+    response = model.generate_content(prompt).__getattribute__("text")
     popen(f"echo \"{response}\" > {output_file_name}")
 
 def checkInput(arguments):
