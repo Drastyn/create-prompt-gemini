@@ -1,7 +1,11 @@
 name: 'Gemini'
 inputs:
-  prompt: 
-    description: 'Prompt para Gemini'
+  concept: 
+    description: 'Concepto para Gemini'
+    required: true
+    type: string
+  style:
+    description: 'Stylo del concepto'
     required: true
     type: string
   output-artifact: 
@@ -45,7 +49,7 @@ runs:
 
     - name: "Prompt generation"
       shell: bash
-      run: python3 gemini/main.py "${{ inputs.prompt }}"
+      run: python3 gemini/main.py "${{ inputs.concept }}"
       env:
         GOOGLE_API_KEY: ${{ inputs.GOOGLE_API_KEY }} 
 
