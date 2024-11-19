@@ -61,5 +61,5 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ inputs.output-artifact }}
-        path: ${{ github.workspace }}/output
+        path: ${{ github.workspace }}/${{ inputs.output-file-name }}
         retention-days: 1
