@@ -11,22 +11,17 @@ context = "Tu objetivo principal es dado un texto generar una descripcion de un 
 model = genai.GenerativeModel('gemini-pro')
 
 def main():
-    concept = checkInput(sys.argv)
-    prompt  = context + concept
+    prompt = checkInput(sys.argv)
+    prompt = context + prompt
     response = model.generate_content(prompt).__getattribute__("text")
-    popen(f"echo \"{style}\" > {output_file_name}")
     popen(f"echo \"{response}\" >> {output_file_name}")
 
 def checkInput(arguments):
-    arguments_length = len(arguments)
     prompt = ""
-    if(arguments_length == 1 or arguments_length > 2):
-        print("Recuerde ingresar solo un argumento")
-        exit()
     if(path.isfile(arguments[1])):
         prompt = popen(f"cat {arguments[1]}").read().replace("\n", "\\n")
     else:
-        prompt = arguments[1]
+        prompt = arguments[1] + arguments[2]
     return prompt
 
 main()
