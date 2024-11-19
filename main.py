@@ -7,7 +7,8 @@ output_file_name = getenv('OUTPUT_FILE_NAME')
 
 genai.configure(api_key=google_api_key)
 context = "Tu objetivo principal es dado un texto generar una descripcion de un tatuaje que pueda ser introducida como prompt en un modelo texto a imagen. La desripcion debe ser concreta en no mas de 200 palabras y que pueda ser expresada mediante una imagen. El texto es: "
-model = genai.GenerativeModel('gemini-1.5-flash', system_instruction=context)
+#model = genai.GenerativeModel('gemini-1.5-flash', system_instruction=context)
+model = genai.GenerativeModel('gemini-pro')
 
 def main():
     prompt   = checkInput(sys.argv)
