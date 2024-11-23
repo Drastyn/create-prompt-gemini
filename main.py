@@ -8,7 +8,7 @@ output_file_name = getenv('OUTPUT_FILE_NAME')
 
 
 genai.configure(api_key=google_api_key)
-context = "Tu objetivo principal es dado un concepto y un estilo, generes una descripcion de un tatuaje que pueda ser introducida como prompt en un modelo texto a imagen. La desripcion debe ser concreta en no mas de 100 palabras y que pueda ser expresada mediante una imagen. "
+context = "Tu objetivo principal es, dado un concepto y un estilo, generar una descripción de un tatuaje que pueda ser introducida como prompt en un modelo texto a imagen. La descripción debe ser concreta en no más de 100 palabras y que pueda ser expresada mediante una imagen. "
 model = genai.GenerativeModel('gemini-pro')
 
 
