@@ -25,4 +25,5 @@ def prepare_prompt(arguments):
     prompt = f"Concepto: {concept}, Estilo: {style}"
     return prompt
 
+
 main()
